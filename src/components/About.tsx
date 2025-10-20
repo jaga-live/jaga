@@ -103,7 +103,7 @@ const About = () => {
             variants={itemVariants}
             className="grid grid-cols-3 gap-4 md:gap-6 mb-12"
           >
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <motion.div
                 key={stat.label}
                 whileHover={{ y: -5 }}

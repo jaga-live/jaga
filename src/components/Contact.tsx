@@ -39,19 +39,6 @@ const Contact = () => {
     return colors[iconName] || '#FFFFFF';
   };
 
-  const getIconUrl = (iconName: string) => {
-    switch (iconName) {
-      case 'linkedin':
-        return 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg';
-      case 'email':
-        return 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg';
-      case 'discord':
-        return 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg';
-      default:
-        return '';
-    }
-  };
-
   return (
     <section id="contact" className="min-h-screen py-20 px-6">
       <motion.div
