@@ -6,8 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: "0.0.0.0",
-    allowedHosts: ["jaga.live"],
-    port: 5173,
-    strictPort: true,
+    allowedHosts: ["*"],
+    cors: true,
   },
 });
