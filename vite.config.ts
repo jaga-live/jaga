@@ -12,6 +12,6 @@ export default defineConfig({
   preview: {
     host: "0.0.0.0",
     port: 5173,
-    allowedHosts: ["jaga.live", "www.jaga.live"],
+    allowedHosts: [ "*", "jaga.live", "www.jaga.live"],
   },
 });
