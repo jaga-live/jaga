@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  jaga-portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: jaga-portfolio
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=production
