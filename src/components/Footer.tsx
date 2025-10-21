@@ -20,9 +20,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/jaga', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg' },
-    { name: 'Email', url: 'mailto:jaga@example.com', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg' },
-    { name: 'Discord', url: 'https://discord.com/users/jaga', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jaga-live/', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg' },
+    { name: 'Email', url: 'mailto:jagadheesh6@gmail.com', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg' },
+    { name: 'Discord', url: 'https://discord.com/users/516438995824017420', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg' },
   ];
 
   return (

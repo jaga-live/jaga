@@ -25,7 +25,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 z-0">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 z-0">
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
         <motion.div

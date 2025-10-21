@@ -5,6 +5,7 @@ export const skills: Skill[] = [
   { name: 'NestJS', category: 'Backend' },
   { name: 'Node.js', category: 'Backend' },
   { name: 'Express.js', category: 'Backend' },
+  { name: 'GraphQL', category: 'Backend' },
   { name: 'InversifyJS', category: 'Backend' },
 
   // Languages
@@ -17,10 +18,13 @@ export const skills: Skill[] = [
   { name: 'Redis', category: 'Databases' },
   { name: 'MS SQL Server', category: 'Databases' },
   { name: 'DynamoDB', category: 'Databases' },
+  { name: 'Neo4j', category: 'Databases' },
+  { name: 'Elasticsearch', category: 'Databases' },
 
   // Message Queue
   { name: 'Kafka', category: 'Message Queue' },
   { name: 'RabbitMQ', category: 'Message Queue' },
+  { name: 'NATS', category: 'Message Queue' },
 
   // Protocols
   { name: 'gRPC', category: 'Protocols' },
@@ -30,8 +34,10 @@ export const skills: Skill[] = [
   // DevOps
   { name: 'Docker', category: 'DevOps' },
   { name: 'Kubernetes', category: 'DevOps' },
-  { name: 'Jenkins', category: 'DevOps' },
   { name: 'Linux', category: 'DevOps' },
+  { name: 'Jenkins', category: 'DevOps' },
+  { name: 'GitHub Actions', category: 'DevOps' },
+  { name: 'Nginx', category: 'DevOps' },
 
   // Cloud
   { name: 'AWS', category: 'Cloud' },
