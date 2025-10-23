@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { projects } from '../data/projects';
 import { useState } from 'react';
+import flanticLogo from '../assets/images/flantic-prime.png';
 
 const Projects = () => {
   const { ref, controls } = useScrollAnimation();
@@ -144,7 +145,7 @@ const Projects = () => {
                     </h3>
                     {project.id === '1' && (
                       <img
-                        src="/src/assets/images/flantic-prime.png"
+                        src={flanticLogo}
                         alt="Flantic Logo"
                         className="w-9 h-9 object-contain ml-1"
                       />
