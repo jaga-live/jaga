@@ -69,22 +69,10 @@ const Navbar = () => {
         className="fixed top-6 z-50 w-full flex justify-center"
       >
         <div
-          className="rounded-full px-8 py-4 transition-all duration-500 w-[80%] relative overflow-hidden group/nav"
-          style={{
-            background: scrolled
-              ? 'rgba(15, 15, 30, 0.7)'
-              : 'rgba(20, 20, 40, 0.6)',
-            backdropFilter: 'blur(24px) saturate(200%)',
-            WebkitBackdropFilter: 'blur(24px) saturate(200%)',
-            border: scrolled
-              ? '1px solid rgba(139, 92, 246, 0.3)'
-              : '1px solid rgba(255, 255, 255, 0.1)',
-            boxShadow: scrolled
-              ? '0 8px 32px 0 rgba(139, 92, 246, 0.2), 0 0 0 1px rgba(139, 92, 246, 0.1) inset'
-              : '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
-          }}
+          className="glass rounded-full px-8 py-4 transition-all duration-500 w-[80%] relative overflow-hidden group/nav"
         >
           {/* Animated gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10 rounded-full pointer-events-none" />
           <div
             className="absolute inset-0 opacity-0 group-hover/nav:opacity-100 transition-opacity duration-700 pointer-events-none"
             style={{
