@@ -11,13 +11,12 @@ const About = () => {
   useEffect(() => {
     if (isStatsInView) {
       const duration = 2000;
-      const steps = 60;
-      const stepDuration = duration / steps;
+      const startTime = performance.now();
+      let animationFrameId: number;
 
-      let currentStep = 0;
-      const timer = setInterval(() => {
-        currentStep++;
-        const progress = currentStep / steps;
+      const animate = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
 
         setCounters({
           years: Math.min(Math.floor(5 * progress), 5),
@@ -25,12 +24,13 @@ const About = () => {
           users: Math.min(Math.floor(10 * progress), 10),
         });
 
-        if (currentStep >= steps) {
-          clearInterval(timer);
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(animate);
         }
-      }, stepDuration);
+      };
 
-      return () => clearInterval(timer);
+      animationFrameId = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(animationFrameId);
     }
   }, [isStatsInView]);
 
@@ -164,7 +164,7 @@ const About = () => {
               <motion.div
                 key={stat.label}
                 whileHover={{ y: -5 }}
-                className="glass rounded-2xl p-6 text-center"
+                className="glass rounded-2xl p-6 text-center will-change-transform"
               >
                 <div
                   className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}
@@ -191,7 +191,7 @@ const About = () => {
                   key={industry.name}
                   whileHover={{ scale: 1.05, y: -5 }}
                   transition={{ duration: 0.3 }}
-                  className="relative group cursor-pointer"
+                  className="relative group cursor-pointer will-change-transform"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl backdrop-blur-xl border border-white/20 group-hover:border-white/30 transition-all duration-300" />
                   <div className="relative z-10 p-6 text-center">

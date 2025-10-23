@@ -86,7 +86,7 @@ const Hero = () => {
               onClick={() => scrollToSection('projects')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-lg text-white font-semibold text-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all"
+              className="px-8 py-4 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-lg text-white font-semibold text-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all will-change-transform"
             >
               View Projects
             </motion.button>
@@ -95,7 +95,7 @@ const Hero = () => {
               onClick={() => scrollToSection('contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white/5 rounded-lg text-white font-semibold text-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/10 transition-all"
+              className="px-8 py-4 bg-white/5 rounded-lg text-white font-semibold text-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/10 transition-all will-change-transform"
             >
               Get in Touch
             </motion.button>

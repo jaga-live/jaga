@@ -78,7 +78,7 @@ const Contact = () => {
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className="bg-white/5 rounded-xl p-8 flex flex-col items-center justify-center space-y-4 border border-white/10 hover:border-white/20 group cursor-pointer"
+                className="bg-white/5 rounded-xl p-8 flex flex-col items-center justify-center space-y-4 border border-white/10 hover:border-white/20 group cursor-pointer will-change-transform"
                 style={{ contain: 'layout style paint' }}
               >
                 <div className={`p-4 rounded-xl ${colors.iconBg} border ${colors.border} group-hover:scale-110 transition-transform`}>

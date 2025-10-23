@@ -116,7 +116,7 @@ const Skills = () => {
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className="bg-white/5 rounded-xl p-6 hover:bg-white/8 transition-colors border border-white/10 hover:border-purple-500/30 group cursor-pointer"
+                className="bg-white/5 rounded-xl p-6 hover:bg-white/8 transition-colors border border-white/10 hover:border-purple-500/30 group cursor-pointer will-change-transform"
                 style={{ contain: 'layout style paint' }}
               >
                 <div className="flex items-center gap-3 mb-4">

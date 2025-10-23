@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="space-y-4 md:col-span-2">
             <motion.h3
               whileHover={{ scale: 1.05 }}
-              className="text-3xl font-semibold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent cursor-pointer"
+              className="text-3xl font-semibold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent cursor-pointer will-change-transform"
               onClick={scrollToTop}
               style={{ fontFamily: "'Caveat', cursive" }}
             >
@@ -51,7 +51,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-2 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/50 transition-all"
+                  className="p-2 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/50 transition-all will-change-transform"
                 >
                   <img src={social.icon} alt={social.name} className="w-5 h-5" />
                 </motion.a>
@@ -68,7 +68,7 @@ const Footer = () => {
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   whileHover={{ x: 3 }}
-                  className="text-gray-400 hover:text-cyan-400 transition-colors text-left text-sm"
+                  className="text-gray-400 hover:text-cyan-400 transition-colors text-left text-sm will-change-transform"
                 >
                   {item.label}
                 </motion.button>
@@ -101,7 +101,7 @@ const Footer = () => {
             onClick={scrollToTop}
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/50 text-gray-400 hover:text-cyan-400 transition-all text-sm group"
+            className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/10 hover:border-cyan-500/50 text-gray-400 hover:text-cyan-400 transition-all text-sm group will-change-transform"
           >
             <span>Back to Top</span>
             <svg

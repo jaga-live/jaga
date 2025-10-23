@@ -2,38 +2,41 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+    let ticking = false;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+
+          // Update active section
+          const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+          const scrollPosition = scrollY + 200;
+
+          for (const section of sections) {
+            const element = document.getElementById(section);
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                setActiveSection(section);
+                break;
+              }
+            }
           }
-        }
+
+          ticking = false;
+        });
+
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -110,7 +113,7 @@ const Navbar = () => {
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="relative px-5 py-2.5 text-gray-300 hover:text-white transition-all duration-300 group overflow-hidden rounded-full"
+                    className="relative px-5 py-2.5 text-gray-300 hover:text-white transition-all duration-300 group overflow-hidden rounded-full will-change-transform"
                   >
                     <span className={`relative z-10 font-medium transition-all duration-300 ${isActive ? 'text-white' : ''}`}>
                       {item.label}
@@ -242,7 +245,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ x: 10 }}
-                    className="text-2xl font-semibold text-gray-300 hover:text-white transition-all duration-300 w-full text-left group relative"
+                    className="text-2xl font-semibold text-gray-300 hover:text-white transition-all duration-300 w-full text-left group relative will-change-transform"
                   >
                     <span className="flex items-center relative z-10">
                       <span className={`mr-3 transition-all duration-300 ${isActive ? 'text-cyan-400 scale-110' : 'text-purple-500'}`}>
