@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     let ticking = false;
@@ -12,6 +13,9 @@ const Navbar = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const scrollY = window.scrollY;
+
+          // Update scroll state
+          setIsScrolled(scrollY > 50);
 
           // Update active section
           const sections = ['home', 'about', 'skills', 'projects', 'contact'];
@@ -72,7 +76,9 @@ const Navbar = () => {
         className="fixed top-6 z-50 w-full flex justify-center"
       >
         <div
-          className="glass rounded-full px-8 py-4 transition-all duration-500 w-[80%] relative overflow-hidden group/nav"
+          className={`glass rounded-full px-8 py-4 transition-all duration-500 w-[80%] relative overflow-hidden group/nav ${
+            isScrolled ? 'bg-black/60 backdrop-blur-xl shadow-xl shadow-black/50' : ''
+          }`}
         >
           {/* Animated gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10 rounded-full pointer-events-none" />
@@ -101,7 +107,7 @@ const Navbar = () => {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-2 relative z-10">
+            <div className="hidden md:flex items-center space-x-1 relative z-10">
               {navItems.map((item, index) => {
                 const isActive = activeSection === item.href;
                 return (
@@ -111,46 +117,51 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative px-5 py-2.5 text-gray-300 hover:text-white transition-all duration-300 group overflow-hidden rounded-full will-change-transform"
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    whileTap={{ scale: 0.92 }}
+                    className="relative px-5 py-2.5 transition-all duration-300 group overflow-hidden rounded-xl will-change-transform"
                   >
-                    <span className={`relative z-10 font-medium transition-all duration-300 ${isActive ? 'text-white' : ''}`}>
-                      {item.label}
-                    </span>
-
-                    {/* Hover gradient background */}
+                    {/* Hover background */}
                     <motion.div
-                      className="absolute inset-0 rounded-full"
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileHover={{ scale: 1, opacity: 1 }}
-                      animate={{ scale: isActive ? 1 : 0, opacity: isActive ? 0.3 : 0 }}
-                      transition={{ duration: 0.4, ease: "easeOut" }}
-                      style={{
-                        background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2), rgba(59, 130, 246, 0.2))',
+                      className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-blue-500/20"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileHover={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+
+                    {/* Active background with gradient */}
+                    <motion.div
+                      className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-600/30 via-pink-600/30 to-blue-600/30 backdrop-blur-sm border border-purple-400/20"
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{
+                        opacity: isActive ? 1 : 0,
+                        scale: isActive ? 1 : 0.85
+                      }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.34, 1.56, 0.64, 1]
                       }}
                     />
 
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
+                    {/* Animated glow on hover */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
 
-                    {/* Bottom indicator */}
+                    {/* Text with gradient for active state */}
+                    <span className={`relative z-10 font-semibold transition-all duration-300 ${
+                      isActive
+                        ? 'bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent'
+                        : 'text-gray-300 group-hover:text-white'
+                    }`}>
+                      {item.label}
+                    </span>
+
+                    {/* Underline animation on hover */}
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: isActive ? 1 : 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"
+                      initial={{ scaleX: 0, opacity: 0 }}
+                      whileHover={{ scaleX: 1, opacity: 1 }}
+                      transition={{ duration: 0.3 }}
                     />
-
-                    {/* Active dot indicator */}
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeIndicator"
-                        className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
                   </motion.button>
                 );
               })}
@@ -234,7 +245,7 @@ const Navbar = () => {
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             className="fixed inset-y-0 right-0 z-40 w-full sm:w-80 bg-black/95 backdrop-blur-xl border-l border-purple-500/20 md:hidden"
           >
-            <div className="flex flex-col items-start justify-center h-full px-8 space-y-6">
+            <div className="flex flex-col items-start justify-center h-full px-8 space-y-4">
               {navItems.map((item, index) => {
                 const isActive = activeSection === item.href;
                 return (
@@ -244,30 +255,79 @@ const Navbar = () => {
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    whileHover={{ x: 10 }}
-                    className="text-2xl font-semibold text-gray-300 hover:text-white transition-all duration-300 w-full text-left group relative will-change-transform"
+                    whileHover={{ x: 10, scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="w-full text-left group relative will-change-transform p-4 rounded-xl overflow-hidden"
                   >
-                    <span className="flex items-center relative z-10">
-                      <span className={`mr-3 transition-all duration-300 ${isActive ? 'text-cyan-400 scale-110' : 'text-purple-500'}`}>
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      <span className={isActive ? 'text-white' : ''}>{item.label}</span>
-                    </span>
+                    {/* Hover glow */}
                     <motion.div
-                      className="h-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 mt-2"
-                      initial={{ width: 0 }}
-                      animate={{ width: isActive ? '100%' : 0 }}
-                      whileHover={{ width: '100%' }}
+                      className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-transparent rounded-2xl"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileHover={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3 }}
                     />
-                    {/* Glow effect */}
-                    {isActive && (
-                      <motion.div
-                        layoutId="mobileActiveGlow"
-                        className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-transparent rounded-lg -z-10"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
+
+                    {/* Active background with border */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-pink-600/30 to-blue-600/30 border border-purple-400/20 rounded-2xl backdrop-blur-sm"
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{
+                        opacity: isActive ? 1 : 0,
+                        scale: isActive ? 1 : 0.85
+                      }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.34, 1.56, 0.64, 1]
+                      }}
+                    />
+
+                    <span className="flex items-center relative z-10">
+                      {/* Number indicator with gradient */}
+                      <span className={`mr-4 font-bold text-lg transition-all duration-300 ${
+                        isActive
+                          ? 'bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent scale-110'
+                          : 'text-purple-500/60 group-hover:text-purple-400'
+                      }`}>
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+
+                      {/* Label text */}
+                      <span className={`text-2xl font-bold transition-all duration-300 ${
+                        isActive
+                          ? 'bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent'
+                          : 'text-gray-300 group-hover:text-white'
+                      }`}>
+                        {item.label}
+                      </span>
+
+                      {/* Animated arrow for active */}
+                      {isActive && (
+                        <motion.span
+                          className="ml-auto text-cyan-400"
+                          initial={{ x: -10, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 200,
+                            damping: 10
+                          }}
+                        >
+                          →
+                        </motion.span>
+                      )}
+                    </span>
+
+                    {/* Gradient underline */}
+                    <motion.div
+                      className="h-0.5 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mt-3 rounded-full relative z-10"
+                      initial={{ width: 0, opacity: 0 }}
+                      animate={{
+                        width: isActive ? '100%' : 0,
+                        opacity: isActive ? 1 : 0
+                      }}
+                      whileHover={{ width: '100%', opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
                   </motion.button>
                 );
               })}

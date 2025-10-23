@@ -27,7 +27,7 @@ const Projects = () => {
 
   // Different gradient colors for each project
   const projectColors = [
-    { gradient: 'from-blue-600 to-cyan-400', iconBg: 'bg-blue-500/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
+    { gradient: 'from-green-600 to-emerald-400', iconBg: 'bg-green-500/10', border: 'border-green-500/30', glow: 'shadow-green-500/20' },
     { gradient: 'from-orange-600 to-amber-500', iconBg: 'bg-orange-500/10', border: 'border-orange-500/30', glow: 'shadow-orange-500/20' },
     { gradient: 'from-purple-600 to-pink-400', iconBg: 'bg-purple-500/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
   ];
@@ -138,9 +138,25 @@ const Projects = () => {
 
                 {/* Project Content */}
                 <div className="p-6 space-y-4">
-                  <h3 className={`text-xl font-bold bg-gradient-to-r ${colors.gradient} bg-clip-text text-transparent`}>
-                    {project.title}
-                  </h3>
+                  <div className="flex items-center">
+                    <h3 className={`text-2xl font-bold bg-gradient-to-r ${colors.gradient} bg-clip-text text-transparent`}>
+                      {project.title}
+                    </h3>
+                    {project.id === '1' && (
+                      <img
+                        src="/src/assets/images/flantic-prime.png"
+                        alt="Flantic Logo"
+                        className="w-9 h-9 object-contain ml-1"
+                      />
+                    )}
+                    {project.id === '2' && (
+                      <img
+                        src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg"
+                        alt="Discord Logo"
+                        className="w-7 h-7 object-contain invert ml-2"
+                      />
+                    )}
+                  </div>
 
                   <p className="text-gray-300 text-sm leading-relaxed min-h-[60px]">
                     {project.description}
