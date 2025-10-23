@@ -158,22 +158,22 @@ const About = () => {
           <motion.div
             ref={statsRef}
             variants={itemVariants}
-            className="grid grid-cols-3 gap-4 md:gap-6 mb-12"
+            className="grid grid-cols-3 gap-3 md:gap-6 mb-12"
           >
             {stats.map((stat) => (
               <motion.div
                 key={stat.label}
                 whileHover={{ y: -5 }}
-                className="glass rounded-2xl p-6 text-center will-change-transform"
+                className="glass rounded-2xl p-3 md:p-6 text-center will-change-transform"
               >
                 <div
-                  className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}
+                  className={`text-2xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-1 md:mb-2`}
                 >
                   {stat.key === "years" && `${counters.years}+`}
                   {stat.key === "projects" && `${counters.projects}+`}
                   {stat.key === "users" && `${counters.users}M+`}
                 </div>
-                <div className="text-sm md:text-base text-gray-400">
+                <div className="text-xs md:text-base text-gray-400 leading-tight">
                   {stat.label}
                 </div>
               </motion.div>
