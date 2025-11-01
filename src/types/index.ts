@@ -1,3 +1,35 @@
+export interface ProjectDetails {
+  currentStats?: {
+    users?: string;
+    servers?: string;
+    guilds?: string;
+  };
+  hosting?: {
+    provider: string;
+    processor: string;
+    ram: string;
+    storage?: string;
+  };
+  architecture?: {
+    overview: string;
+    benefits?: string[];
+    components: Array<{
+      name: string;
+      description: string;
+      features: string[];
+      tech: string[];
+    }> | string[];
+  };
+  challenges?: Array<{
+    title: string;
+    description: string;
+    solution: string;
+  }>;
+  detailedExplanation?: string;
+  flowDiagram?: string;
+  architectureDiagram?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -8,6 +40,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   featured?: boolean;
+  details?: ProjectDetails;
 }
 
 export interface Skill {

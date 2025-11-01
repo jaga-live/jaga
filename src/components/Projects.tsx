@@ -2,11 +2,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { projects } from '../data/projects';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import flanticLogo from '../assets/images/flantic-prime.png';
 
 const Projects = () => {
   const { ref, controls } = useScrollAnimation();
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -143,14 +145,14 @@ const Projects = () => {
                     <h3 className={`text-2xl font-bold bg-gradient-to-r ${colors.gradient} bg-clip-text text-transparent`}>
                       {project.title}
                     </h3>
-                    {project.id === '1' && (
+                    {project.id === 'flantic' && (
                       <img
                         src={flanticLogo}
                         alt="Flantic Logo"
                         className="w-9 h-9 object-contain ml-1"
                       />
                     )}
-                    {project.id === '2' && (
+                    {project.id === 'nescord' && (
                       <img
                         src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg"
                         alt="Discord Logo"
@@ -211,6 +213,18 @@ const Projects = () => {
                         </svg>
                         <span>Live</span>
                       </a>
+                    )}
+
+                    {project.details && (
+                      <button
+                        onClick={() => navigate(`/projects/${project.id}`)}
+                        className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm ml-auto"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Details</span>
+                      </button>
                     )}
                   </div>
                 </div>
