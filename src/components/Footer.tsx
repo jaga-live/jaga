@@ -1,39 +1,39 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const navItems = [
-    { label: "About", href: "about" },
-    { label: "Skills", href: "skills" },
-    { label: "Projects", href: "projects" },
-    { label: "Contact", href: "contact" },
+    { label: 'About', href: 'about' },
+    { label: 'Skills', href: 'skills' },
+    { label: 'Projects', href: 'projects' },
+    { label: 'Contact', href: 'contact' },
   ];
 
   const socialLinks = [
     {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/jaga-live/",
-      icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg",
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/jaga-live/',
+      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg',
     },
     {
-      name: "Email",
-      url: "mailto:jagadheesh6@gmail.com",
-      icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg",
+      name: 'Email',
+      url: 'mailto:jagadheesh6@gmail.com',
+      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gmail.svg',
     },
     {
-      name: "Discord",
-      url: "https://discord.com/users/516438995824017420",
-      icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg",
+      name: 'Discord',
+      url: 'https://discord.com/users/516438995824017420',
+      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg',
     },
   ];
 
@@ -54,14 +54,14 @@ const Footer = () => {
               </span>
             </h2>
             <p className="text-gray-400 text-lg max-w-xl">
-              Have an idea? I'm always open to discussing new projects, creative
-              ideas or opportunities to be part of your visions.
+              Have an idea? I'm always open to discussing new projects, creative ideas or
+              opportunities to be part of your visions.
             </p>
           </div>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => scrollToSection("contact")}
+            onClick={() => scrollToSection('contact')}
             className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-shadow"
           >
             Start a Project
@@ -79,9 +79,8 @@ const Footer = () => {
               Jaga
             </motion.div>
             <p className="text-gray-400 text-sm max-w-md leading-relaxed">
-              Backend Engineer specializing in scalable systems, microservices
-              architecture, and cloud-native applications. Building the digital
-              infrastructure of tomorrow.
+              Backend Engineer specializing in scalable systems, microservices architecture, and
+              cloud-native applications. Building the digital infrastructure of tomorrow.
             </p>
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => (
@@ -106,9 +105,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider">
-              Navigation
-            </h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider">Navigation</h4>
             <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <motion.button
@@ -125,9 +122,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider">
-              Contact
-            </h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider">Contact</h4>
             <div className="space-y-3 text-sm text-gray-400">
               <p>Coimbatore, India</p>
               <a

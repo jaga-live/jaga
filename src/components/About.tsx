@@ -1,11 +1,11 @@
-import { motion, useInView } from "framer-motion";
-import { useScrollAnimation } from "../hooks/useScrollAnimation";
-import { useRef, useState, useEffect } from "react";
+import { motion, useInView } from 'framer-motion';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useRef, useState, useEffect } from 'react';
 
 const About = () => {
   const { ref, controls } = useScrollAnimation();
   const statsRef = useRef(null);
-  const isStatsInView = useInView(statsRef, { once: true, margin: "-100px" });
+  const isStatsInView = useInView(statsRef, { once: true, margin: '-100px' });
   const [counters, setCounters] = useState({ years: 0, projects: 0, users: 0 });
 
   useEffect(() => {
@@ -59,83 +59,83 @@ const About = () => {
 
   const stats = [
     {
-      number: "5+",
-      label: "Years Experience",
-      gradient: "from-cyan-400 to-blue-500",
-      key: "years",
+      number: '5+',
+      label: 'Years Experience',
+      gradient: 'from-cyan-400 to-blue-500',
+      key: 'years',
     },
     {
-      number: "20+",
-      label: "Projects Built",
-      gradient: "from-emerald-400 to-teal-500",
-      key: "projects",
+      number: '20+',
+      label: 'Projects Built',
+      gradient: 'from-emerald-400 to-teal-500',
+      key: 'projects',
     },
     {
-      number: "10M+",
-      label: "Users Served",
-      gradient: "from-orange-400 to-red-500",
-      key: "users",
+      number: '10M+',
+      label: 'Users Served',
+      gradient: 'from-orange-400 to-red-500',
+      key: 'users',
     },
   ];
 
   const industries = [
     {
       // Shopping Cart / Store
-      iconPath: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z",
-      name: "eCommerce & Sales",
-      desc: "High-scale platforms handling millions of transactions.",
-      color: "from-green-400 to-emerald-600",
-      bg: "bg-emerald-500/10",
-      border: "border-emerald-500/20",
+      iconPath: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z',
+      name: 'eCommerce & Sales',
+      desc: 'High-scale platforms handling millions of transactions.',
+      color: 'from-green-400 to-emerald-600',
+      bg: 'bg-emerald-500/10',
+      border: 'border-emerald-500/20',
     },
     {
       // Map / Navigation
       iconPath:
-        "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7",
-      name: "Transportation",
-      desc: "Real-time tracking, dispatching, and payment systems.",
-      color: "from-blue-400 to-indigo-600",
-      bg: "bg-blue-500/10",
-      border: "border-blue-500/20",
+        'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
+      name: 'Transportation',
+      desc: 'Real-time tracking, dispatching, and payment systems.',
+      color: 'from-blue-400 to-indigo-600',
+      bg: 'bg-blue-500/10',
+      border: 'border-blue-500/20',
     },
     {
       // Briefcase / Business
       iconPath:
-        "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-      name: "Business Tools",
-      desc: "SaaS solutions for invoicing, scheduling, and management.",
-      color: "from-purple-400 to-fuchsia-600",
-      bg: "bg-purple-500/10",
-      border: "border-purple-500/20",
+        'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+      name: 'Business Tools',
+      desc: 'SaaS solutions for invoicing, scheduling, and management.',
+      color: 'from-purple-400 to-fuchsia-600',
+      bg: 'bg-purple-500/10',
+      border: 'border-purple-500/20',
     },
     {
       // Academic Cap / Education
       iconPath:
-        "M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z",
-      name: "Education",
-      desc: "LMS platforms, student tracking, and virtual classrooms.",
-      color: "from-amber-400 to-orange-600",
-      bg: "bg-amber-500/10",
-      border: "border-amber-500/20",
+        'M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z',
+      name: 'Education',
+      desc: 'LMS platforms, student tracking, and virtual classrooms.',
+      color: 'from-amber-400 to-orange-600',
+      bg: 'bg-amber-500/10',
+      border: 'border-amber-500/20',
     },
     {
       // Heart Pulse / Healthcare
       iconPath:
-        "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
-      name: "Healthcare",
-      desc: "Secure patient data systems, HL7/FHIR standards.",
-      color: "from-rose-400 to-red-600",
-      bg: "bg-rose-500/10",
-      border: "border-rose-500/20",
+        'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+      name: 'Healthcare',
+      desc: 'Secure patient data systems, HL7/FHIR standards.',
+      color: 'from-rose-400 to-red-600',
+      bg: 'bg-rose-500/10',
+      border: 'border-rose-500/20',
     },
     {
       // Shopping Bag / Retail
-      iconPath: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z",
-      name: "Retail Tech",
-      desc: "Location intelligence, ad-tech, and inventory systems.",
-      color: "from-teal-400 to-cyan-600",
-      bg: "bg-teal-500/10",
-      border: "border-teal-500/20",
+      iconPath: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z',
+      name: 'Retail Tech',
+      desc: 'Location intelligence, ad-tech, and inventory systems.',
+      color: 'from-teal-400 to-cyan-600',
+      bg: 'bg-teal-500/10',
+      border: 'border-teal-500/20',
     },
   ];
 
@@ -146,8 +146,8 @@ const About = () => {
     >
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-64 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-64 w-96 h-96 bg-purple-600/20 rounded-full blur-2xl" />
+        <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-blue-600/20 rounded-full blur-2xl" />
       </div>
 
       <motion.div
@@ -179,15 +179,13 @@ const About = () => {
                 Engineering Scalable Solutions
               </h3>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                I am a passionate{" "}
-                <span className="text-white font-medium">Backend Engineer</span>{" "}
+                I am a passionate <span className="text-white font-medium">Backend Engineer</span>{' '}
                 specializing in building high-performance, distributed systems.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                From designing microservices to optimizing databases, I focus on
-                creating robust infrastructure that scales effortlessly. My goal
-                is to write clean, efficient code that powers seamless user
-                experiences.
+                From designing microservices to optimizing databases, I focus on creating robust
+                infrastructure that scales effortlessly. My goal is to write clean, efficient code
+                that powers seamless user experiences.
               </p>
             </div>
           </motion.div>
@@ -209,13 +207,11 @@ const About = () => {
                   <div
                     className={`text-3xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent font-outfit`}
                   >
-                    {stat.key === "years" && `${counters.years}+`}
-                    {stat.key === "projects" && `${counters.projects}+`}
-                    {stat.key === "users" && `${counters.users}M+`}
+                    {stat.key === 'years' && `${counters.years}+`}
+                    {stat.key === 'projects' && `${counters.projects}+`}
+                    {stat.key === 'users' && `${counters.users}M+`}
                   </div>
-                  <div className="text-sm text-gray-400 font-medium mt-1">
-                    {stat.label}
-                  </div>
+                  <div className="text-sm text-gray-400 font-medium mt-1">{stat.label}</div>
                 </div>
                 <div
                   className={`w-12 h-12 rounded-full bg-gradient-to-r ${stat.gradient} flex items-center justify-center opacity-20 group-hover:opacity-100 transition-opacity duration-300`}
@@ -279,9 +275,7 @@ const About = () => {
                     <h4 className="text-lg font-bold text-white mb-2 group-hover:text-purple-200 transition-colors">
                       {industry.name}
                     </h4>
-                    <p className="text-sm text-gray-300 leading-relaxed">
-                      {industry.desc}
-                    </p>
+                    <p className="text-sm text-gray-300 leading-relaxed">{industry.desc}</p>
                   </div>
                 </div>
               </motion.div>

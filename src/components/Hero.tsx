@@ -1,16 +1,16 @@
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
   const [gradientIndex, setGradientIndex] = useState(0);
 
   const gradients = [
-    "from-emerald-400 via-cyan-400 to-blue-500",
-    "from-rose-400 via-fuchsia-500 to-indigo-500",
-    "from-purple-500 via-pink-500 to-orange-500",
-    "from-yellow-400 via-red-500 to-pink-500",
-    "from-green-400 via-teal-500 to-blue-600",
-    "from-indigo-500 via-purple-500 to-pink-600",
+    'from-emerald-400 via-cyan-400 to-blue-500',
+    'from-rose-400 via-fuchsia-500 to-indigo-500',
+    'from-purple-500 via-pink-500 to-orange-500',
+    'from-yellow-400 via-red-500 to-pink-500',
+    'from-green-400 via-teal-500 to-blue-600',
+    'from-indigo-500 via-purple-500 to-pink-600',
   ];
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -42,7 +42,7 @@ const Hero = () => {
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 1, ease: 'easeOut' }}
             className="mb-8 inline-block"
           >
             <div className="relative group cursor-default">
@@ -63,15 +63,13 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <span className="text-white block mb-2 drop-shadow-2xl">
-              Building digital
-            </span>
+            <span className="text-white block mb-2 drop-shadow-2xl">Building digital</span>
             <span className="relative inline-block cursor-pointer">
               {gradients.map((gradient, index) => (
                 <span
                   key={index}
                   className={`bg-gradient-to-r ${gradient} bg-clip-text text-transparent transition-opacity duration-1000 ease-in-out absolute inset-0 ${
-                    index === gradientIndex ? "opacity-100" : "opacity-0"
+                    index === gradientIndex ? 'opacity-100' : 'opacity-0'
                   } blur-[1px] hover:blur-0 transition-all`}
                 >
                   experiences
@@ -87,15 +85,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            I craft{" "}
-            <span className="text-white font-medium">
-              scalable backend systems
-            </span>{" "}
-            and{" "}
-            <span className="text-white font-medium">
-              high-performance microservices
-            </span>{" "}
-            with a focus on reliability.
+            I craft <span className="text-white font-medium">scalable backend systems</span> and{' '}
+            <span className="text-white font-medium">high-performance microservices</span> with a
+            focus on reliability.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -106,7 +98,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
           >
             <motion.button
-              onClick={() => scrollToSection("projects")}
+              onClick={() => scrollToSection('projects')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group relative px-8 py-4 bg-white text-black rounded-full font-bold text-lg shadow-[0_0_20px_rgba(255,255,255,0.3)] overflow-hidden"
@@ -117,7 +109,7 @@ const Hero = () => {
             </motion.button>
 
             <motion.button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => scrollToSection('contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 glass text-white font-semibold text-lg rounded-full hover:bg-white/10 transition-all shadow-lg shadow-purple-900/20 border border-white/10"

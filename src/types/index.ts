@@ -13,12 +13,14 @@ export interface ProjectDetails {
   architecture?: {
     overview: string;
     benefits?: string[];
-    components: Array<{
-      name: string;
-      description: string;
-      features: string[];
-      tech: string[];
-    }> | string[];
+    components:
+      | Array<{
+          name: string;
+          description: string;
+          features: string[];
+          tech: string[];
+        }>
+      | string[];
   };
   challenges?: Array<{
     title: string;

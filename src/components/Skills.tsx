@@ -30,51 +30,93 @@ const Skills = () => {
 
   // Multiple colors for different categories
   const categoryColors: Record<string, { gradient: string; border: string; iconBg: string }> = {
-    Backend: { gradient: 'from-blue-600 to-cyan-400', border: 'border-blue-500/30', iconBg: 'bg-blue-500/10' },
-    Languages: { gradient: 'from-green-500 to-emerald-300', border: 'border-green-400/30', iconBg: 'bg-green-400/10' },
-    Databases: { gradient: 'from-orange-600 to-amber-500', border: 'border-orange-500/30', iconBg: 'bg-orange-500/10' },
-    'Message Queue': { gradient: 'from-purple-600 to-pink-400', border: 'border-purple-500/30', iconBg: 'bg-purple-500/10' },
-    Protocols: { gradient: 'from-teal-500 to-cyan-300', border: 'border-teal-400/30', iconBg: 'bg-teal-400/10' },
-    DevOps: { gradient: 'from-red-600 to-rose-500', border: 'border-red-500/30', iconBg: 'bg-red-500/10' },
-    Cloud: { gradient: 'from-indigo-600 to-blue-400', border: 'border-indigo-500/30', iconBg: 'bg-indigo-500/10' },
-    Architecture: { gradient: 'from-violet-500 to-purple-300', border: 'border-violet-400/30', iconBg: 'bg-violet-400/10' },
+    Backend: {
+      gradient: 'from-blue-600 to-cyan-400',
+      border: 'border-blue-500/30',
+      iconBg: 'bg-blue-500/10',
+    },
+    Languages: {
+      gradient: 'from-green-500 to-emerald-300',
+      border: 'border-green-400/30',
+      iconBg: 'bg-green-400/10',
+    },
+    Databases: {
+      gradient: 'from-orange-600 to-amber-500',
+      border: 'border-orange-500/30',
+      iconBg: 'bg-orange-500/10',
+    },
+    'Message Queue': {
+      gradient: 'from-purple-600 to-pink-400',
+      border: 'border-purple-500/30',
+      iconBg: 'bg-purple-500/10',
+    },
+    Protocols: {
+      gradient: 'from-teal-500 to-cyan-300',
+      border: 'border-teal-400/30',
+      iconBg: 'bg-teal-400/10',
+    },
+    DevOps: {
+      gradient: 'from-red-600 to-rose-500',
+      border: 'border-red-500/30',
+      iconBg: 'bg-red-500/10',
+    },
+    Cloud: {
+      gradient: 'from-indigo-600 to-blue-400',
+      border: 'border-indigo-500/30',
+      iconBg: 'bg-indigo-500/10',
+    },
+    Architecture: {
+      gradient: 'from-violet-500 to-purple-300',
+      border: 'border-violet-400/30',
+      iconBg: 'bg-violet-400/10',
+    },
   };
 
   // Logo URLs for tech stack
   const getSkillLogo = (skillName: string) => {
     const logos: Record<string, string> = {
-      'NestJS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg',
+      NestJS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg',
       'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-      'Express.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg',
-      'GraphQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
-      'InversifyJS': 'https://avatars.githubusercontent.com/u/16796657?s=200&v=4',
-      'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-      'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-      'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
-      'PostgreSQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-      'Redis': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
-      'MS SQL Server': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg',
-      'DynamoDB': 'https://upload.wikimedia.org/wikipedia/commons/f/fd/DynamoDB.png',
-      'Neo4j': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg',
-      'Elasticsearch': 'https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt36f2da8d650732a0/5d0823c3d8ff351753cbc99f/logo-elasticsearch-32-color.svg',
-      'Kafka': 'https://cdn.worldvectorlogo.com/logos/kafka.svg',
-      'RabbitMQ': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg',
-      'NATS': 'https://avatars.githubusercontent.com/u/6395913?s=200&v=4',
-      'gRPC': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg',
-      'REST': 'https://img.icons8.com/color/96/api-settings.png',
-      'WebSockets': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg',
-      'Docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-      'Kubernetes': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
-      'Jenkins': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg',
-      'GitHub Actions': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg',
-      'Nginx': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg',
-      'Linux': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
-      'AWS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
-      'Google Cloud': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg',
+      'Express.js':
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg',
+      GraphQL: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
+      InversifyJS: 'https://avatars.githubusercontent.com/u/16796657?s=200&v=4',
+      TypeScript:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+      JavaScript:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+      MongoDB: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+      PostgreSQL:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+      Redis: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
+      'MS SQL Server':
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg',
+      DynamoDB: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/DynamoDB.png',
+      Neo4j: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg',
+      Elasticsearch:
+        'https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt36f2da8d650732a0/5d0823c3d8ff351753cbc99f/logo-elasticsearch-32-color.svg',
+      Kafka: 'https://cdn.worldvectorlogo.com/logos/kafka.svg',
+      RabbitMQ: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg',
+      NATS: 'https://avatars.githubusercontent.com/u/6395913?s=200&v=4',
+      gRPC: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grpc/grpc-original.svg',
+      REST: 'https://img.icons8.com/color/96/api-settings.png',
+      WebSockets:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg',
+      Docker: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+      Kubernetes:
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
+      Jenkins: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg',
+      'GitHub Actions':
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg',
+      Nginx: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg',
+      Linux: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+      AWS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+      'Google Cloud':
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg',
       'Bare Metal': 'https://img.icons8.com/color/96/server.png',
-      'Microservices': 'https://img.icons8.com/color/96/api.png',
+      Microservices: 'https://img.icons8.com/color/96/api.png',
       'Event-Driven': 'https://img.icons8.com/color/96/event-accepted.png',
-      'Serverless': 'https://img.icons8.com/color/96/cloud-function.png',
+      Serverless: 'https://img.icons8.com/color/96/cloud-function.png',
     };
     return logos[skillName] || 'https://via.placeholder.com/48';
   };
@@ -100,7 +142,8 @@ const Skills = () => {
           variants={itemVariants}
           className="text-center text-gray-400 mb-16 max-w-2xl mx-auto"
         >
-          My technical expertise across backend development, cloud infrastructure, and system architecture
+          My technical expertise across backend development, cloud infrastructure, and system
+          architecture
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -115,13 +158,17 @@ const Skills = () => {
                 key={category}
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 className="bg-white/5 rounded-xl p-6 hover:bg-white/8 transition-colors border border-white/10 hover:border-purple-500/30 group cursor-pointer will-change-transform"
                 style={{ contain: 'layout style paint' }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-10 h-10 rounded-lg ${colors.iconBg} flex items-center justify-center flex-shrink-0`}>
-                    <span className={`text-sm font-bold bg-gradient-to-r ${colors.gradient} bg-clip-text text-transparent`}>
+                  <div
+                    className={`w-10 h-10 rounded-lg ${colors.iconBg} flex items-center justify-center flex-shrink-0`}
+                  >
+                    <span
+                      className={`text-sm font-bold bg-gradient-to-r ${colors.gradient} bg-clip-text text-transparent`}
+                    >
                       {categoryIndex + 1}
                     </span>
                   </div>
@@ -160,7 +207,6 @@ const Skills = () => {
             );
           })}
         </div>
-
       </motion.div>
     </section>
   );

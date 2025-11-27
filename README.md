@@ -15,6 +15,7 @@ A modern, dark-themed portfolio website showcasing backend engineering skills an
 ## Tech Stack
 
 ### Frontend
+
 - **React 19** - UI library
 - **TypeScript** - Type safety
 - **Vite** - Build tool and dev server
@@ -23,6 +24,7 @@ A modern, dark-themed portfolio website showcasing backend engineering skills an
 - **React Intersection Observer** - Scroll-based animations
 
 ### Design
+
 - Dark theme with purple/blue gradients
 - Glassmorphism effects
 - Smooth parallax scrolling
@@ -68,17 +70,20 @@ jaga-portfolio/
 ### Installation
 
 1. Clone the repository
+
 ```bash
 git clone <repository-url>
 cd jaga-portfolio
 ```
 
 2. Install dependencies
+
 ```bash
 npm install
 ```
 
 3. Start development server
+
 ```bash
 npm run dev
 ```
@@ -126,6 +131,7 @@ The application will be available at `http://localhost:5173/`
 ## Building for Production
 
 1. Create production build
+
 ```bash
 npm run build
 ```
@@ -133,6 +139,7 @@ npm run build
 2. The build output will be in the `dist/` directory
 
 3. Test production build locally
+
 ```bash
 npm run preview
 ```
@@ -142,6 +149,7 @@ npm run preview
 ### Bare Metal Server
 
 1. Build the application
+
 ```bash
 npm run build
 ```
@@ -179,6 +187,7 @@ CMD ["nginx", "-g", "daemon off;"]
 ```
 
 Build and run:
+
 ```bash
 docker build -t jaga-portfolio .
 docker run -p 80:80 jaga-portfolio
