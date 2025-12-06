@@ -39,11 +39,11 @@ const AnimatedBackground = () => {
   // Pre-parse all colors once to avoid repeated string parsing
   const parsedColors = useMemo(() => {
     const sectionGradients = [
-      ['rgba(103, 58, 183, 0.6)', 'rgba(63, 81, 181, 0.5)', 'rgba(33, 150, 243, 0.55)'], // Deep Purple/Blue
-      ['rgba(0, 188, 212, 0.6)', 'rgba(0, 150, 136, 0.5)', 'rgba(33, 150, 243, 0.55)'], // Cyan/Teal
-      ['rgba(156, 39, 176, 0.6)', 'rgba(233, 30, 99, 0.5)', 'rgba(103, 58, 183, 0.55)'], // Purple/Pink
-      ['rgba(33, 150, 243, 0.6)', 'rgba(3, 169, 244, 0.5)', 'rgba(0, 188, 212, 0.55)'], // Blue/Cyan
-      ['rgba(233, 30, 99, 0.6)', 'rgba(255, 64, 129, 0.5)', 'rgba(156, 39, 176, 0.55)'], // Pink/Rose
+      ['rgba(103, 58, 183, 0.15)', 'rgba(63, 81, 181, 0.1)', 'rgba(33, 150, 243, 0.15)'], // Deep Purple/Blue - Reduced opacity
+      ['rgba(0, 188, 212, 0.15)', 'rgba(0, 150, 136, 0.1)', 'rgba(33, 150, 243, 0.15)'], // Cyan/Teal - Reduced opacity
+      ['rgba(156, 39, 176, 0.15)', 'rgba(233, 30, 99, 0.1)', 'rgba(103, 58, 183, 0.15)'], // Purple/Pink - Reduced opacity
+      ['rgba(33, 150, 243, 0.15)', 'rgba(3, 169, 244, 0.1)', 'rgba(0, 188, 212, 0.15)'], // Blue/Cyan - Reduced opacity
+      ['rgba(233, 30, 99, 0.15)', 'rgba(255, 64, 129, 0.1)', 'rgba(156, 39, 176, 0.15)'], // Pink/Rose - Reduced opacity
     ];
 
     const parseRgba = (rgba: string) => {
@@ -79,7 +79,7 @@ const AnimatedBackground = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 0 }}>
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0f0a15] to-[#0a0a0f]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-[#050505] to-black" />
 
       {/* Optimized gradient blobs - spread toward corners with smooth color interpolation */}
       <motion.div

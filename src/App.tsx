@@ -11,7 +11,7 @@ import ProjectDetail from './components/ProjectDetail';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#0a0a0f]">
+    <div className="relative min-h-screen bg-black">
       <AnimatedBackground />
       <div className="noise-overlay" />
       <div className="relative" style={{ zIndex: 1 }}>
