@@ -1,38 +1,26 @@
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import AnimatedBackground from './components/AnimatedBackground';
-import ProjectDetail from './components/ProjectDetail';
+import { lazy, Suspense } from 'react';
+import HomePage from './components/HomePage';
+import CustomCursor from './components/CustomCursor';
+
+// Case study (and its lazy Mermaid dependency) is split out of the initial bundle.
+const ProjectDetail = lazy(() => import('./components/ProjectDetail'));
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-black">
-      <AnimatedBackground />
-      <div className="noise-overlay" />
-      <div className="relative" style={{ zIndex: 1 }}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Navbar />
-                <Hero />
-                <About />
-                <Skills />
-                <Projects />
-                <Contact />
-                <Footer />
-              </>
-            }
-          />
-          <Route path="/projects/:id" element={<ProjectDetail />} />
-        </Routes>
-      </div>
+    <div className="min-h-screen bg-paper text-ink">
+      <CustomCursor />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/projects/:id"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-paper" />}>
+              <ProjectDetail />
+            </Suspense>
+          }
+        />
+      </Routes>
     </div>
   );
 }

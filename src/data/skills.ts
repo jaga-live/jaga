@@ -50,6 +50,22 @@ export const skills: Skill[] = [
   { name: 'Serverless', category: 'Architecture' },
 ];
 
+/**
+ * The curated set shown on the home page — depth over breadth.
+ * The full `skills` list above is still available for a detailed view.
+ * TODO(confirm): trim/adjust to the 6–8 you most want to be grilled on.
+ */
+export const coreStack: string[] = [
+  'NestJS',
+  'TypeScript',
+  'gRPC',
+  'Kafka',
+  'Kubernetes',
+  'PostgreSQL',
+  'Redis',
+  'Microservices',
+];
+
 export const skillCategories = [
   'Backend',
   'Languages',
