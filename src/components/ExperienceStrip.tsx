@@ -11,8 +11,9 @@ function range(e: Experience) {
 export default function ExperienceStrip() {
   return (
     <section id="experience" className="mx-auto max-w-content px-6 py-14 md:py-20">
-      <ScrollReveal>
-        <p className="eyebrow mb-6">Experience</p>
+      <ScrollReveal className="mb-8 flex items-center gap-4">
+        <h2 className="shrink-0 text-[15px] font-medium tracking-[-0.01em] text-ink">Experience</h2>
+        <span className="h-px flex-1 bg-hairline" />
       </ScrollReveal>
 
       <div className="flex flex-col">

@@ -38,8 +38,9 @@ export default function SelectedWork() {
 
   return (
     <section id="work" className="mx-auto max-w-content px-6 py-14 md:py-20">
-      <ScrollReveal>
-        <p className="eyebrow mb-6">Selected work</p>
+      <ScrollReveal className="mb-8 flex items-center gap-4">
+        <h2 className="shrink-0 text-[15px] font-medium tracking-[-0.01em] text-ink">Selected work</h2>
+        <span className="h-px flex-1 bg-hairline" />
       </ScrollReveal>
 
       <div className="grid gap-3 md:grid-cols-3">
@@ -104,7 +105,7 @@ export default function SelectedWork() {
           </ScrollReveal>
         ))}
 
-        <ScrollReveal delay={0.15} className="md:col-span-2">
+        <ScrollReveal delay={0.15} className="md:col-span-3">
           <div className="card flex h-full flex-col p-5">
             <p className="eyebrow mb-3">Core stack</p>
             <div className="flex flex-wrap gap-1.5">

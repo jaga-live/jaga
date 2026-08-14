@@ -44,7 +44,7 @@ export default function CustomCursor() {
     const render = () => {
       pos.current.x += (target.current.x - pos.current.x) * 0.2;
       pos.current.y += (target.current.y - pos.current.y) * 0.2;
-      const scale = hovering.current ? 1.8 : 1;
+      const scale = hovering.current ? 1.1 : 1;
       if (ringRef.current) {
         ringRef.current.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px) translate(-50%, -50%) scale(${scale})`;
         ringRef.current.style.borderColor = hovering.current ? 'var(--accent)' : 'var(--muted)';

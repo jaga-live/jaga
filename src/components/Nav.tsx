@@ -1,4 +1,5 @@
 import { profile } from '../data/profile';
+import ThemeToggle from './ThemeToggle';
 
 const links = [
   { label: 'Work', href: '#work' },
@@ -10,7 +11,11 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-paper/80 backdrop-blur-md">
       <nav className="mx-auto flex h-14 max-w-content items-center justify-between px-6">
-        <a href="#top" className="font-mono text-sm font-medium text-ink" aria-label="Back to top">
+        <a
+          href="#top"
+          className="font-mono text-sm font-medium text-ink transition-opacity hover:opacity-70"
+          aria-label="Back to top"
+        >
           {profile.name.toLowerCase()}
           <span className="text-accent">.</span>
         </a>
@@ -19,17 +24,18 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="hidden font-mono text-[13px] text-secondary transition-colors hover:text-ink sm:inline"
+              className="link-underline hidden font-mono text-[13px] text-secondary transition-colors hover:text-ink sm:inline"
             >
               {l.label}
             </a>
           ))}
+          <ThemeToggle />
           {profile.resumeUrl && (
             <a
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-md border-[0.5px] border-hairline bg-surface px-3 py-1.5 font-mono text-[13px] text-ink transition-colors hover:border-accent"
+              className="btn rounded-md border-[0.5px] border-hairline bg-surface px-3 py-1.5 font-mono text-[13px] text-ink hover:border-accent"
             >
               Resume
             </a>

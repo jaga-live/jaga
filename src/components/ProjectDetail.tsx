@@ -109,7 +109,7 @@ export default function ProjectDetail() {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 font-mono text-[13px] text-paper transition-opacity hover:opacity-90"
+                  className="btn inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 font-mono text-[13px] text-paper hover:opacity-90"
                 >
                   <Icon name="external" size={15} />
                   Live site
@@ -120,7 +120,7 @@ export default function ProjectDetail() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md border-[0.5px] border-hairline bg-surface px-4 py-2.5 font-mono text-[13px] text-ink transition-colors hover:border-accent"
+                  className="btn inline-flex items-center gap-2 rounded-md border-[0.5px] border-hairline bg-surface px-4 py-2.5 font-mono text-[13px] text-ink hover:border-accent"
                 >
                   <Icon name="github" size={15} />
                   Source
@@ -175,7 +175,10 @@ export default function ProjectDetail() {
             {d.architectureDiagram && (
               <div className="ml-[calc(50%-50vw)] mt-8 w-screen px-6">
                 <div className="mx-auto max-w-[1320px]">
-                  <div className="card overflow-x-auto p-4 md:p-8 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:max-w-full">
+                  <div
+                    className="card overflow-x-auto p-4 md:p-8 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:max-w-full"
+                    style={{ background: '#f4f2ea' }}
+                  >
                     <Mermaid chart={d.architectureDiagram} />
                   </div>
                 </div>

@@ -281,20 +281,4 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/jaga-live/nescord',
     featured: true,
   },
-  {
-    id: 'distributed-task-scheduler',
-    title: 'Distributed Task Scheduler',
-    tagline: 'Fault-tolerant job pipeline',
-    role: 'Developer',
-    // TODO(confirm): is this in production or a personal/learning project? Set accordingly.
-    status: 'personal',
-    description:
-      'Created a fault-tolerant distributed task scheduling system with priority queues and auto-scaling capabilities.',
-    longDescription:
-      'Built a distributed task scheduler using NestJS and MongoDB. Implemented priority-based task queuing, automatic retries with exponential backoff, and horizontal scaling. Deployed on AWS using ECS and managed with Jenkins CI/CD pipelines.',
-    technologies: ['NestJS', 'MongoDB', 'Docker', 'AWS', 'Jenkins', 'TypeScript'],
-    image: '/project3.jpg',
-    githubUrl: 'https://github.com/jaga-live',
-    featured: true,
-  },
 ];

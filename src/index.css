@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  /* Warm low-glare theme — softened off-white so it reads for long stretches */
+  /* Warm low-glare light theme — softened off-white so it reads for long stretches */
   --paper: #eae7de;
   --surface: #f5f3ec;
   --ink: #1c1b18;
@@ -17,6 +17,9 @@
   --accent: #0e6e54;
   --accent-tint: #d7e9e1;
   --accent-strong: #0a5240;
+
+  /* Soft lift shadow, tuned per theme so cards read raised without going harsh */
+  --lift: 0 10px 30px -16px rgba(24, 20, 12, 0.28);
 
   /* Font stack lives behind a variable so Söhne can be dropped in later */
   --font-sans: 'Hanken Grotesk Variable', 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
@@ -36,6 +39,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Near-black terminal theme — neutral black canvas, bright white text. */
+html[data-theme='dark'] {
+  --paper: #0d0d0d;
+  --surface: #151515;
+  --ink: #f5f5f4;
+  --secondary: #9a9a9a;
+  --muted: #6b6b6b;
+  --hairline: #242424;
+  --chip: #1b1b1b;
+  --heatmap-empty: #202020;
+
+  --accent: #e0a868;
+  --accent-tint: #2a2012;
+  --accent-strong: #f0c48a;
+
+  --lift: 0 10px 30px -14px rgba(0, 0, 0, 0.6);
+
+  color-scheme: dark;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -47,6 +70,13 @@ body {
   min-height: 100vh;
   background-color: var(--paper);
   overflow-x: hidden;
+}
+
+/* Theme swap eases surfaces and text instead of hard-cutting */
+body,
+.card,
+header {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 html {
@@ -62,7 +92,7 @@ img {
   color: var(--accent-strong);
 }
 
-/* Accessible focus ring on the warm-light surface */
+/* Accessible focus ring on either surface */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -76,12 +106,12 @@ img {
   background: var(--paper);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d8d6cd;
+  background: var(--hairline);
   border-radius: 6px;
   border: 2px solid var(--paper);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c4c2b8;
+  background: var(--muted);
 }
 
 @layer components {
@@ -91,25 +121,50 @@ img {
   .chip {
     @apply inline-flex items-center rounded-md border-[0.5px] border-hairline bg-chip px-2 py-0.5 font-mono text-[12px] text-secondary;
   }
+  /* De-AI'd label: sentence-case mono, no ALL-CAPS tracking tell */
   .eyebrow {
-    @apply font-mono text-[12px] uppercase tracking-[0.06em] text-muted;
+    @apply font-mono text-[11px] tracking-[0.02em] text-muted;
   }
 }
 
-/* Hover-reactive cards: lift + accent border + arrow nudge */
 @layer utilities {
+  /* Hover-reactive cards: lift + accent border + soft shadow + arrow nudge */
   .hover-card {
-    @apply transition-[transform,border-color] duration-200 ease-out;
+    @apply transition-[transform,border-color,box-shadow] duration-200 ease-out;
   }
   .hover-card:hover {
     transform: translateY(-3px);
     border-color: var(--accent);
+    box-shadow: var(--lift);
   }
   .hover-card:hover .nudge {
     transform: translateX(4px);
   }
   .nudge {
     @apply inline-block transition-transform duration-200 ease-out;
+  }
+
+  /* Tactile buttons: gentle rise on hover, press-down on click */
+  .btn {
+    @apply transition-[transform,border-color,background-color,opacity,box-shadow] duration-200 ease-out;
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn:active {
+    transform: translateY(0) scale(0.97);
+  }
+
+  /* Nav link: underline wipes in from the left on hover */
+  .link-underline {
+    @apply relative;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out;
+  }
+  .link-underline:hover::after {
+    @apply scale-x-100;
   }
 }
 

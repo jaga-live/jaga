@@ -4,18 +4,17 @@ import ActivityHeatmap from './ActivityHeatmap';
 import ScrollReveal from './ScrollReveal';
 
 export default function Hero() {
-  const discordUrl = profile.socials.find((s) => s.icon === 'discord')?.url;
+  const githubUrl =
+    profile.socials.find((s) => s.icon === 'github')?.url ??
+    `https://github.com/${profile.githubUsername}`;
 
   return (
     <section id="top" className="mx-auto max-w-content px-6 pt-14 md:pt-20">
       <div className="grid items-end gap-10 border-b border-hairline pb-10 md:grid-cols-[1.35fr_1fr] md:gap-14">
         <ScrollReveal>
           {profile.available && (
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full bg-accent-tint px-3 py-1 font-mono text-[11px] text-accent-strong">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-              </span>
+            <span className="mb-6 flex items-start gap-2.5 font-mono text-[12px] text-secondary">
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
               {profile.availabilityNote ?? 'Open to opportunities'}
             </span>
           )}
@@ -37,7 +36,7 @@ export default function Hero() {
                 target={s.url.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
                 aria-label={s.name}
-                className="text-muted transition-colors hover:text-ink"
+                className="text-muted transition-[color,transform] duration-200 hover:-translate-y-0.5 hover:text-ink"
               >
                 <Icon name={s.icon} size={20} />
               </a>
@@ -47,29 +46,27 @@ export default function Hero() {
 
         <ScrollReveal delay={0.1} className="card hover-card p-4">
           <div className="mb-3 flex items-center justify-between">
-            <span className="eyebrow">github activity</span>
+            <span className="eyebrow">Contribution activity</span>
             <span className="font-mono text-[11px] text-muted">18 weeks</span>
           </div>
           <a
-            href={discordUrl}
+            href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Open Discord profile"
+            aria-label={`Open GitHub profile for ${profile.githubUsername}`}
             className="block"
           >
             <ActivityHeatmap weeks={18} username={profile.githubUsername} />
           </a>
-          {discordUrl && (
-            <a
-              href={discordUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-1.5 font-mono text-[12px] text-muted transition-colors hover:text-ink"
-            >
-              <Icon name="discord" size={14} />@{profile.githubUsername}
-              <Icon name="arrow-up-right" size={12} className="nudge" />
-            </a>
-          )}
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1.5 font-mono text-[12px] text-muted transition-colors hover:text-ink"
+          >
+            <Icon name="github" size={14} />@{profile.githubUsername}
+            <Icon name="arrow-up-right" size={12} className="nudge" />
+          </a>
         </ScrollReveal>
       </div>
     </section>

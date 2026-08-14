@@ -8,7 +8,9 @@ type IconName =
   | 'arrow-right'
   | 'arrow-up-right'
   | 'map-pin'
-  | 'external';
+  | 'external'
+  | 'sun'
+  | 'moon';
 
 interface IconProps {
   name: IconName;
@@ -35,6 +37,8 @@ const strokePaths: Partial<Record<IconName, string>> = {
   'arrow-up-right': 'M7 17 17 7M8 7h9v9',
   'map-pin': 'M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11ZM12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z',
   external: 'M14 4h6m0 0v6m0-6L10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5',
+  sun: 'M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10ZM12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4',
+  moon: 'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z',
 };
 
 export default function Icon({ name, className, size = 20 }: IconProps) {

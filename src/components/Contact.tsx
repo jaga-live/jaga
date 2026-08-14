@@ -23,7 +23,7 @@ export default function Contact() {
             {email && (
               <a
                 href={email.url}
-                className="inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 font-mono text-[13px] text-paper transition-opacity hover:opacity-90"
+                className="btn inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 font-mono text-[13px] text-paper hover:opacity-90"
               >
                 <Icon name="email" size={16} />
                 {email.url.replace('mailto:', '')}
@@ -34,7 +34,7 @@ export default function Contact() {
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border-[0.5px] border-hairline bg-surface px-4 py-2.5 font-mono text-[13px] text-ink transition-colors hover:border-accent"
+                className="btn inline-flex items-center gap-2 rounded-md border-[0.5px] border-hairline bg-surface px-4 py-2.5 font-mono text-[13px] text-ink hover:border-accent"
               >
                 <Icon name="resume" size={16} />
                 Resume
@@ -57,7 +57,7 @@ export default function Contact() {
                 target={s.url.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
                 aria-label={s.name}
-                className="text-muted transition-colors hover:text-ink"
+                className="text-muted transition-[color,transform] duration-200 hover:-translate-y-0.5 hover:text-ink"
               >
                 <Icon name={s.icon} size={18} />
               </a>

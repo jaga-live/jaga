@@ -21,6 +21,15 @@
       content="Backend engineer building distributed systems that stay up under real load."
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function () {
+        var t = localStorage.getItem('theme') ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', t === 'dark' ? '#0d0d0d' : '#f7f6f2');
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
