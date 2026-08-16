@@ -1,28 +1,24 @@
-import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import HomePage from './components/HomePage';
-import CustomCursor from './components/CustomCursor';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
 
-// Case study (and its lazy Mermaid dependency) is split out of the initial bundle.
-const ProjectDetail = lazy(() => import('./components/ProjectDetail'));
+const FlanticProject = lazy(() => import('./pages/FlanticProject'));
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      <CustomCursor />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
         <Route
-          path="/projects/:id"
+          path="projects/flantic"
           element={
-            <Suspense fallback={<div className="min-h-screen bg-paper" />}>
-              <ProjectDetail />
+            <Suspense fallback={<div className="route-loading">Loading case study…</div>}>
+              <FlanticProject />
             </Suspense>
           }
         />
-      </Routes>
-    </div>
+      </Route>
+    </Routes>
   );
 }
-
-export default App;

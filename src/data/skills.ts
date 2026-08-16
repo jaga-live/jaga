@@ -1,78 +1,75 @@
-import type { Skill } from '../types';
+import type { SkillGroup } from '../types';
 
-export const skills: Skill[] = [
-  // Backend
-  { name: 'NestJS', category: 'Backend' },
-  { name: 'Node.js', category: 'Backend' },
-  { name: 'Express.js', category: 'Backend' },
-  { name: 'GraphQL', category: 'Backend' },
-  { name: 'InversifyJS', category: 'Backend' },
-
-  // Languages
-  { name: 'TypeScript', category: 'Languages' },
-  { name: 'JavaScript', category: 'Languages' },
-
-  // Databases
-  { name: 'MongoDB', category: 'Databases' },
-  { name: 'PostgreSQL', category: 'Databases' },
-  { name: 'Redis', category: 'Databases' },
-  { name: 'MS SQL Server', category: 'Databases' },
-  { name: 'DynamoDB', category: 'Databases' },
-  { name: 'Neo4j', category: 'Databases' },
-  { name: 'Elasticsearch', category: 'Databases' },
-
-  // Message Queue
-  { name: 'Kafka', category: 'Message Queue' },
-  { name: 'RabbitMQ', category: 'Message Queue' },
-  { name: 'NATS', category: 'Message Queue' },
-
-  // Protocols
-  { name: 'gRPC', category: 'Protocols' },
-  { name: 'REST', category: 'Protocols' },
-  { name: 'WebSockets', category: 'Protocols' },
-
-  // DevOps
-  { name: 'Docker', category: 'DevOps' },
-  { name: 'Kubernetes', category: 'DevOps' },
-  { name: 'Linux', category: 'DevOps' },
-  { name: 'Jenkins', category: 'DevOps' },
-  { name: 'GitHub Actions', category: 'DevOps' },
-  { name: 'Nginx', category: 'DevOps' },
-
-  // Cloud
-  { name: 'AWS', category: 'Cloud' },
-  { name: 'Google Cloud', category: 'Cloud' },
-  { name: 'Bare Metal', category: 'Cloud' },
-
-  // Architecture
-  { name: 'Microservices', category: 'Architecture' },
-  { name: 'Event-Driven', category: 'Architecture' },
-  { name: 'Serverless', category: 'Architecture' },
+export const skillGroups: SkillGroup[] = [
+  {
+    label: 'Languages',
+    description: 'The code I write',
+    items: [
+      { name: 'TypeScript', icon: 'typescript' },
+      { name: 'JavaScript', icon: 'javascript' },
+    ],
+  },
+  {
+    label: 'Backend',
+    description: 'Services and application layers',
+    items: [
+      { name: 'Node.js', icon: 'nodejs' },
+      { name: 'NestJS', icon: 'nestjs' },
+      { name: 'InversifyJS', icon: 'inversify' },
+      { name: 'Express.js', icon: 'express' },
+      { name: 'GraphQL', icon: 'graphql' },
+    ],
+  },
+  {
+    label: 'Protocols',
+    description: 'How systems communicate',
+    items: [
+      { name: 'gRPC', icon: 'grpc' },
+      { name: 'REST APIs', icon: 'openapi' },
+      { name: 'WebSockets', icon: 'websocket' },
+    ],
+  },
+  {
+    label: 'Databases',
+    description: 'Primary and analytical storage',
+    items: [
+      { name: 'MongoDB', icon: 'mongodb' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
+      { name: 'TimescaleDB', icon: 'timescale' },
+      { name: 'Neo4j', icon: 'neo4j' },
+    ],
+  },
+  {
+    label: 'Data & messaging',
+    description: 'Cache, search, queues, and event streams',
+    items: [
+      { name: 'Redis', icon: 'redis' },
+      { name: 'Elasticsearch', icon: 'elasticsearch' },
+      { name: 'Kafka', icon: 'kafka' },
+      { name: 'RabbitMQ', icon: 'rabbitmq' },
+      { name: 'NATS', icon: 'nats' },
+    ],
+  },
+  {
+    label: 'Infrastructure',
+    description: 'How services ship and run',
+    items: [
+      { name: 'Docker', icon: 'docker' },
+      { name: 'Kubernetes', icon: 'kubernetes' },
+      { name: 'Linux', icon: 'linux' },
+      { name: 'Jenkins', icon: 'jenkins' },
+      { name: 'GitHub Actions', icon: 'githubactions' },
+      { name: 'Nginx', icon: 'nginx' },
+      { name: 'AWS', icon: 'aws' },
+      { name: 'Google Cloud', icon: 'googlecloud' },
+    ],
+  },
+  {
+    label: 'Observability',
+    description: 'Monitoring and production visibility',
+    items: [
+      { name: 'Grafana', icon: 'grafana' },
+      { name: 'Prometheus', icon: 'prometheus' },
+    ],
+  },
 ];
-
-/**
- * The curated set shown on the home page — depth over breadth.
- * The full `skills` list above is still available for a detailed view.
- * TODO(confirm): trim/adjust to the 6–8 you most want to be grilled on.
- */
-export const coreStack: string[] = [
-  'NestJS',
-  'TypeScript',
-  'gRPC',
-  'Kafka',
-  'Kubernetes',
-  'PostgreSQL',
-  'Redis',
-  'Microservices',
-];
-
-export const skillCategories = [
-  'Backend',
-  'Languages',
-  'Databases',
-  'Message Queue',
-  'Protocols',
-  'DevOps',
-  'Cloud',
-  'Architecture',
-] as const;

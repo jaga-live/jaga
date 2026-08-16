@@ -1,0 +1,16 @@
+{
+  "name": "Jaga",
+  "short_name": "Jaga",
+  "description": "Backend engineer building distributed systems and production TypeScript services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090909",
+  "theme_color": "#090909",
+  "icons": [
+    {
+      "src": "/jaga-avatar.png",
+      "sizes": "460x460",
+      "type": "image/png"
+    }
+  ]
+}
