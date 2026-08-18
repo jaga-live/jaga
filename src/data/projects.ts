@@ -15,7 +15,7 @@ export const projects: Project[] = [
     evidence: [
       { value: '300K+', label: 'servers' },
       { value: '20M+', label: 'users' },
-      { value: '99.9%', label: 'uptime' },
+      { value: '~15M', label: 'requests / day' },
     ],
     technologies: ['TypeScript', 'NestJS', 'gRPC', 'Redis', 'MongoDB', 'PostgreSQL', 'Kubernetes'],
     detailPath: '/projects/flantic',
