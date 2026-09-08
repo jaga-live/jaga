@@ -1485,6 +1485,10 @@ a.diagram-node:focus-visible rect {
 .diagram-edge-label {
   fill: #8f8f8f;
   font-size: 8px;
+  paint-order: stroke fill;
+  stroke: #090909;
+  stroke-width: 4px;
+  stroke-linejoin: round;
 }
 
 .diagram-hint {

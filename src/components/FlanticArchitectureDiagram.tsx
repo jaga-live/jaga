@@ -121,7 +121,7 @@ export default function FlanticArchitectureDiagram() {
 
         {/* Non-overlapping Voice relay return */}
         <path className="diagram-line diagram-line--cyan diagram-line--return" markerEnd="url(#arrow-cyan)" d="M1040 260 V225 H365 V137" />
-        <text className="diagram-edge-label" x="700" y="218">Voice gateway payload relay</text>
+        <text className="diagram-edge-label" x="870" y="218">Voice gateway payload relay</text>
 
         {/* --- LANE 3: DASHBOARD & DATA --- */}
         <text className="diagram-lane-label" x="25" y="420">3. DASHBOARD CONTROL PLANE &amp; DATA PLATFORM</text>
@@ -158,9 +158,15 @@ export default function FlanticArchitectureDiagram() {
         <path className="diagram-line diagram-line--orange" markerEnd="url(#arrow-orange)" d="M415 486 H470" />
         <text className="diagram-edge-label" x="442" y="475" textAnchor="middle">HTTP proxy</text>
 
-        {/* Guild create/update/delete EdgeEvents sync: flantic-main -> flantic-edge */}
+        {/* Cross-lane contracts */}
         <path className="diagram-line diagram-line--orange diagram-line--dashed" markerEnd="url(#arrow-orange)" d="M470 155 H375 V450" />
         <text className="diagram-edge-label" x="382" y="380">Guild sync (gRPC :5002)</text>
+
+        <path className="diagram-line diagram-line--emerald diagram-line--two-way" markerStart="url(#arrow-emerald)" markerEnd="url(#arrow-emerald)" d="M650 155 H672 V465 H705" />
+        <text className="diagram-edge-label" x="660" y="380" textAnchor="end">State &amp; events</text>
+
+        <path className="diagram-line diagram-line--orange diagram-line--dashed" markerEnd="url(#arrow-orange)" d="M650 505 H688 V150 H705" />
+        <text className="diagram-edge-label" x="700" y="380" textAnchor="start">Discord calls (gRPC)</text>
 
         <path className="diagram-line diagram-line--emerald diagram-line--two-way" markerStart="url(#arrow-emerald)" markerEnd="url(#arrow-emerald)" d="M650 486 H705" />
         <text className="diagram-edge-label" x="677" y="475" textAnchor="middle">Read / Write</text>

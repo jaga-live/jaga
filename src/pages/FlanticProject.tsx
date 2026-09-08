@@ -22,7 +22,7 @@ const monolithBottlenecks = [
     title: 'Severe Memory Footprint & Sharding Bloat',
     summary: 'Monolithic clients cache all guild state in process RAM.',
     detail:
-      'Traditional Discord.js clients eagerly cache entire server structures, member lists, and channel objects in memory. Spanning 200+ shards across processes quickly consumed over 4+ GB of RAM, multiplying memory cost whenever application logic needed to scale.',
+      'Traditional Discord.js clients eagerly cache entire server structures, member lists, and channel objects in memory. Spanning 200+ shards across processes quickly consumed over 20+ GB of RAM, multiplying memory cost whenever application logic needed to scale.',
   },
   {
     title: 'Voice Audio & Event Loop Starvation',
@@ -43,7 +43,7 @@ const services = [
     name: 'flantic-main',
     role: 'Bot Core Application',
     description:
-      'Stateless bot business logic deployed with horizontal scaling. Receives 26 typed gateway events from flantic-ws over gRPC (:5000) and slash command interaction webhooks directly from Nginx (:3001). Syncs guild lifecycle events (create, update, delete) and member data in real time to flantic-edge over gRPC (:5002), and routes outbound Discord operations to flantic-rest (:5001).',
+      'Stateless bot business logic deployed with horizontal scaling. Receives 26 typed gateway events from flantic-ws over gRPC and slash command interaction webhooks directly from Nginx. Syncs guild lifecycle events (create, update, delete) and member data in real time to flantic-edge over gRPC, and routes outbound Discord operations to flantic-rest.',
   },
   {
     name: 'flantic-rest',
@@ -55,13 +55,13 @@ const services = [
     name: 'flantic-voice',
     role: 'Voice & Audio Engine',
     description:
-      'Isolates audio streaming from bot logic. Controls Lavalink over WebSocket (:2333), tracks per-guild player state, and relays voice gateway payloads back to flantic-ws through Redis pub/sub (voice:gateway channel).',
+      'Isolates audio streaming from bot logic. Controls Lavalink over WebSocket, tracks per-guild player state, and relays voice gateway payloads back to flantic-ws through Redis pub/sub (voice:gateway channel).',
   },
   {
     name: 'flantic-edge',
     role: 'API Gateway & Tier Router',
     description:
-      'Control plane for the web dashboard and Discord Activity. Hosts the EdgeEvents gRPC service (:5002) to receive real-time guild create, update, delete, and member sync events from flantic-main. Handles Discord OAuth2 login, issues JWT tokens, and dynamically proxies dashboard traffic to Free vs. Prime API pods based on live guild subscription tier.',
+      'Control plane for the web dashboard and Discord Activity. Hosts the EdgeEvents gRPC service to receive real-time guild create, update, delete, and member sync events from flantic-main. Handles Discord OAuth2 login, issues JWT tokens, and dynamically proxies dashboard traffic to Free vs. Prime API pods based on live guild subscription tier.',
   },
   {
     name: 'flantic-api',
@@ -84,7 +84,7 @@ const decisions = [
   },
   {
     title: 'Lean gateway runtime with sequence checkpointing',
-    body: 'Replaced monolithic Discord.js client in the gateway with lightweight @discordjs/ws and 64 shards per worker, cutting memory from 1.3 GB down to ~350 MB. Redis sequence persistence enables instant RESUME handoffs.',
+    body: 'Replaced monolithic Discord.js client in the gateway with lightweight @discordjs/ws and 64 shards per worker, cutting memory from 22 GB down to 1 GB. Redis sequence persistence enables instant RESUME handoffs.',
   },
   {
     title: 'Single outbound choke point for Discord REST',
