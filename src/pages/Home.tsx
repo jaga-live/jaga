@@ -31,6 +31,14 @@ export default function Home() {
             <a className="button button--primary" href="#work">
               Explore my work <Icon name="arrow-down" size={17} />
             </a>
+            <a
+              className="button button--secondary"
+              href="https://github.com/jaga-live"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icon name="github" size={17} /> GitHub
+            </a>
             <a className="button button--secondary" href="mailto:jagadheesh6@gmail.com">
               <Icon name="mail" size={17} /> Get in touch
             </a>
@@ -66,7 +74,7 @@ export default function Home() {
                 <div className="project-row__titleline">
                   <div className={`project-mark project-mark--${project.id}`} aria-hidden="true">
                     {project.logo ? (
-                      <img src={project.logo} alt="" width="76" height="76" loading="lazy" />
+                      <img src={project.logo} alt="" loading="lazy" />
                     ) : project.id === 'nescord' ? (
                       <BrandLogo name="npm" icon="npm" />
                     ) : (
@@ -75,7 +83,15 @@ export default function Home() {
                   </div>
                   <div>
                     <p>{project.kicker}</p>
-                    <h3>{project.detailPath ? <Link to={project.detailPath}>{project.title}</Link> : <a href={project.githubUrl} target="_blank" rel="noreferrer">{project.title}</a>}</h3>
+                    <h3>
+                      {project.detailPath ? (
+                        <Link to={project.detailPath}>{project.title}</Link>
+                      ) : (
+                        <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                          {project.title}
+                        </a>
+                      )}
+                    </h3>
                   </div>
                   <span className="project-status">{project.status}</span>
                 </div>
@@ -93,9 +109,36 @@ export default function Home() {
                 <div className="project-row__footer">
                   <ul aria-label={`${project.title} technologies`}>{project.technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
                   <div className="project-row__links">
-                    {project.detailPath && <Link className="project-primary-link" to={project.detailPath}>Read the case study <Icon name="arrow-up-right" size={15} /></Link>}
-                    {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noreferrer">Source <Icon name="arrow-up-right" size={15} /></a>}
-                    {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer">Live site <Icon name="arrow-up-right" size={15} /></a>}
+                    {project.detailPath && (
+                      <Link className="project-btn project-btn--case-study" to={project.detailPath}>
+                        <span>Read case study</span>
+                        <Icon name="arrow-up-right" size={15} />
+                      </Link>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        className={`project-btn project-btn--github${!project.detailPath ? ' project-btn--primary' : ''}`}
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Icon name="github" size={16} />
+                        <span>View on GitHub</span>
+                        <Icon name="arrow-up-right" size={14} />
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a
+                        className="project-btn project-btn--live"
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Icon name="globe" size={15} />
+                        <span>Live site</span>
+                        <Icon name="arrow-up-right" size={14} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

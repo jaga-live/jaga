@@ -53,9 +53,16 @@ export default function Layout() {
             <a href="/#about">About</a>
           </nav>
 
-          <div className="header-links" aria-label="Contact links">
-            <a href="https://github.com/jaga-live" target="_blank" rel="noreferrer" aria-label="GitHub profile">
-              <Icon name="github" />
+          <div className="header-links" aria-label="Contact and profile links">
+            <a
+              className="header-links__github"
+              href="https://github.com/jaga-live"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub profile"
+            >
+              <Icon name="github" size={17} />
+              <span>GitHub</span>
             </a>
             <a className="header-links__email" href="mailto:jagadheesh6@gmail.com">
               Email me
@@ -70,8 +77,18 @@ export default function Layout() {
 
       <footer className="site-footer">
         <div className="site-footer__inner">
-          <span>Jaga</span>
-          <span>Backend engineering · India · UTC+5:30</span>
+          <div className="site-footer__info">
+            <span>Jaga</span>
+            <span>Backend engineering · India · UTC+5:30</span>
+          </div>
+          <div className="site-footer__links">
+            <a href="https://github.com/jaga-live" target="_blank" rel="noreferrer">
+              <Icon name="github" size={15} /> GitHub
+            </a>
+            <a href="mailto:jagadheesh6@gmail.com">
+              <Icon name="mail" size={15} /> jagadheesh6@gmail.com
+            </a>
+          </div>
         </div>
       </footer>
     </div>

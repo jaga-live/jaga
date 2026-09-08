@@ -1,9 +1,9 @@
-type IconName = 'arrow-up-right' | 'arrow-left' | 'arrow-down' | 'github' | 'mail';
+type IconName='arrow-up-right'|'arrow-left'|'arrow-down'|'github'|'mail'|'globe';
 
 interface IconProps {
-  name: IconName;
-  size?: number;
-  className?: string;
+  name:IconName;
+  size?:number;
+  className?:string;
 }
 
 export default function Icon({ name, size = 18, className }: IconProps) {
@@ -34,6 +34,15 @@ export default function Icon({ name, size = 18, className }: IconProps) {
 
   if (name === 'mail') {
     return <svg {...common}><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>;
+  }
+
+  if (name === 'globe') {
+    return (
+      <svg {...common}>
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20" />
+      </svg>
+    );
   }
 
   return (

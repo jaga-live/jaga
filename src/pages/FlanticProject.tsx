@@ -236,6 +236,25 @@ export default function FlanticProject() {
               <strong className="case-meta-bar__value">Nescord (Open Source)</strong>
             </div>
           </div>
+
+          <div className="case-hero__actions">
+            <a
+              href="https://flantic.app"
+              target="_blank"
+              rel="noreferrer"
+              className="button button--primary"
+            >
+              <Icon name="globe" size={17} /> Visit live platform <Icon name="arrow-up-right" size={15} />
+            </a>
+            <a
+              href="https://github.com/jaga-live/nescord"
+              target="_blank"
+              rel="noreferrer"
+              className="button button--secondary"
+            >
+              <Icon name="github" size={17} /> Explore Nescord on GitHub <Icon name="arrow-up-right" size={15} />
+            </a>
+          </div>
         </div>
 
         {/* Highlight Metrics Cards */}
@@ -256,7 +275,7 @@ export default function FlanticProject() {
             <div className="case-metric-card__sub">Events, commands &amp; API calls</div>
           </div>
           <div className="case-metric-card">
-            <div className="case-metric-card__value">80+</div>
+            <div className="case-metric-card__value">100+</div>
             <div className="case-metric-card__label">Commands &amp; Tools</div>
             <div className="case-metric-card__sub">Security, moderation &amp; voice</div>
           </div>
@@ -394,7 +413,7 @@ export default function FlanticProject() {
             rel="noreferrer"
             className="button button--primary"
           >
-            View Nescord on GitHub <Icon name="arrow-up-right" size={18} />
+            <Icon name="github" size={18} /> View Nescord on GitHub <Icon name="arrow-up-right" size={18} />
           </a>
         </div>
       </section>
