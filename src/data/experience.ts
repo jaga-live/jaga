@@ -21,6 +21,7 @@ export const experience: Experience[] = [
       'Partially led the team and coordinated releases to staging, production, and customer-managed environments.',
       'Monitored a high-volume application, investigated production issues, and shipped urgent patches when needed.',
     ],
+    keywords: ['HL7', 'FHIR', 'C-CDA', 'Aidbox', 'Smile CDR', 'Healthcare Interoperability', 'US Healthcare'],
     tech: ['TypeScript', 'Node.js', 'NestJS', 'gRPC', 'Kafka', 'MongoDB', 'Kubernetes', 'Google Cloud'],
   },
   {

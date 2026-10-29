@@ -861,6 +861,14 @@ h2[id] {
   text-transform: uppercase;
 }
 
+.experience-item__keywords {
+  max-width: 760px;
+  margin: 14px 0 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
 .experience-item__summary {
   max-width: 760px;
   margin: 24px 0 0;

@@ -177,6 +177,7 @@ export default function Home() {
                   <span>{item.current ? 'Current role' : 'Earlier experience'}</span>
                 </div>
                 <p className="experience-item__summary">{item.summary}</p>
+                {item.keywords && <p className="experience-item__keywords"><strong>{item.keywords.join(' · ')}</strong></p>}
                 {item.projects && (
                   <div className="experience-projects">
                     {item.projects.map((project) => (

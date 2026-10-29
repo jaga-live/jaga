@@ -54,4 +54,5 @@ export interface Experience {
   }>;
   bullets?: string[];
   tech?: string[];
+  keywords?: string[];
 }
